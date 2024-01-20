@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
-import { Patient } from './Patient';
-import { Doctor } from './Doctor';
+import { Patient } from './patient.entity';
+import { Doctor } from './doctor.entity';
 
 @Entity('medical_records')
 export class MedicalRecord {
