@@ -4,6 +4,10 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as process from 'process';
+import { Doctor } from './entitites/doctor.entity';
+import { MedicalRecord } from './entitites/medical-record.entity';
+import { Patient } from './entitites/patient.entity';
+import { User } from './entitites/user.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,8 +20,8 @@ import * as process from 'process';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      entities: [Doctor, MedicalRecord, Patient, User],
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
